@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import ControlPanel, {Checkbox} from 'react-control-panel';
 
 class ToggleTornado extends Component {
   constructor(props) {
@@ -16,10 +17,19 @@ class ToggleTornado extends Component {
 
   render() {
     return (
+        <ControlPanel 
+            theme="dark"
+            title="Toggle Tornado Conditions (for demonstrative purposes)"
+             width={500}
+            style={{ marginRight: 30 }}>
 
-      <button onClick={this.handleClick}>
+            <Checkbox label="Toggle Tornado Conditions"/>
+
+      {/*<button onClick={this.handleClick}>
         {this.state.isToggleOn ? 'Tornado Condition On' : 'Tornado Condition Off'}
-      </button>
+      </button>*/}
+
+      </ControlPanel>
     );
   }
 }
