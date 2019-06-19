@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Tornado from './Tornado';
+import NoTornado from './NoTornado';
 let { apiKey } = require('../secrets');
 
 class Weather extends Component {
@@ -31,11 +33,12 @@ class Weather extends Component {
   }
 
   render() {
-    // console.log(this.state.weatherData);
+    const { id, main } = this.state.weatherData;
     return (
       <div>
-        {/* <h1>weather...</h1> */}
-        <h1>weather: {this.state.weatherData.id}</h1>
+        <h3>Current weather: </h3>
+        <h1>{main}</h1>
+        {id === 781 ? <Tornado /> : <NoTornado />}
       </div>
     );
   }
