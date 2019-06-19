@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-let { apiKey } = require('../secrets');
+import React, { Component } from "react";
+import axios from "axios";
+let { apiKey } = require("../secrets");
 
 class Weather extends Component {
   constructor() {
     super();
     this.state = {
-      weatherData: {},
+      weatherData: {}
     };
   }
 
@@ -16,16 +16,16 @@ class Weather extends Component {
       try {
         const response = await axios.get(url);
         const { data } = response;
-        console.log('data1', data);
+        console.log("data1", data);
         return data.weather[0];
       } catch (error) {
         console.error(error);
       }
     }
-    getWeather('35', '139').then(response => {
-      console.log('data', response);
+    getWeather("35", "139").then(response => {
+      console.log("data", response);
       this.setState({
-        weatherData: response,
+        weatherData: response
       });
     });
   }
