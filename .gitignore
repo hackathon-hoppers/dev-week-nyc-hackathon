@@ -1,7 +1,7 @@
 # OSX
 #
 .DS_Store
-secrets.js
+/src/secrets.js
 config.js
 firebase-config.js
 # Xcode
