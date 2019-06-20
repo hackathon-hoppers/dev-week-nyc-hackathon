@@ -19,7 +19,7 @@ class ToggleTornado extends Component {
       <ControlPanel
         theme="dark"
         title="- - - -  Toggle Tornado Conditions (for demonstrative purposes) - - - - "
-        width={500}
+        width={700}
         style={{ marginRight: 30 }}
       >
         {/* <Checkbox
@@ -27,7 +27,7 @@ class ToggleTornado extends Component {
 
         /> */}
 
-        <button onClick={this.handleClick}>
+        <button label="Toggle" onClick={this.handleClick}>
           {this.props.isTornado
             ? 'Tornado Condition Off'
             : 'Tornado Condition On'}
