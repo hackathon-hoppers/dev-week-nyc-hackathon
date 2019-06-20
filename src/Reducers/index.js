@@ -1,14 +1,20 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+import thunkMiddleware from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-import zip from './locationReducer';
+import weather from './weatherReducer';
 
-const middleware = applyMiddleware(thunk);
+const middleware = composeWithDevTools(
+  applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
+);
 
 const rootReducer = combineReducers({
-  zip,
+  weather,
 });
 
 const store = createStore(rootReducer, middleware);
 
 export default store;
+
+export * from './weatherReducer';

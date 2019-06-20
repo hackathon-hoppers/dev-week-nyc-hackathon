@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateZip } from '../Reducers/locationReducer';
+import { updateZip } from '../Reducers';
 
 class ZipForm extends Component {
   constructor() {
@@ -14,10 +14,11 @@ class ZipForm extends Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
+    this.props.updateZip(this.state.zip);
     this.setState({
       zip: '',
     });
-    this.props.updateZip(this.state.zip);
   }
 
   handleChange(event) {
@@ -37,15 +38,6 @@ class ZipForm extends Component {
             name="zip"
             onChange={this.handleChange}
           />
-
-          <button
-            type="submit"
-            onClick={() => {
-              this.handleSubmit();
-            }}
-          >
-            Submit
-          </button>
         </form>
       </div>
     );
@@ -54,7 +46,7 @@ class ZipForm extends Component {
 
 const mapState = state => {
   return {
-    zip: state.zip,
+    zip: state.weather.zip,
   };
 };
 

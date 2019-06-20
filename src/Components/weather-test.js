@@ -11,40 +11,42 @@ class Weather extends Component {
     super();
     this.state = {
       weatherData: {},
+      zip: '95376',
     };
   }
 
   componentDidMount() {
+    
+
     async function getWeather(zip) {
       let url = `http://api.openweathermap.org/data/2.5/weather?zip=${zip}&appid=${apiKey}`;
       try {
         const response = await axios.get(url);
         const { data } = response;
-        console.log('data1', data);
         return data.weather[0];
       } catch (error) {
         console.error(error);
       }
     }
-    getWeather(this.props.zip).then(response => {
-      console.log('data', this.state);
+    getWeather(this.props.zip || this.state.zip).then(response => {
       this.setState({
         weatherData: response,
       });
-      console.log('data', response);
     });
   }
 
   render() {
-    console.log('props', this.props);
-    const zip = this.props.zip;
-    const { id, main } = this.state.weatherData;
+    let zip;
+    this.props.zip ? ({ zip } = this.props) : ({ zip } = this.state);
+
+    const { id, description } = this.props.weather;
     return (
       <div>
         <ZipForm />
 
-        <h3>Current weather in {zip}</h3>
-        <h1>{main}</h1>
+        <h3>
+          Current weather in {zip}: {description}
+        </h3>
         {id === 781 ? <Tornado /> : <NoTornado />}
       </div>
     );
@@ -53,7 +55,8 @@ class Weather extends Component {
 
 const mapState = state => {
   return {
-    zip: state.zip,
+    zip: state.weather.zip,
+    weather: state.weather.weatherData,
   };
 };
 
