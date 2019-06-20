@@ -27,6 +27,6 @@ async function captureImage() {
   }
 }
 
-captureImage();
+// captureImage();
 
-// module.exports = { captureImage };
+module.exports = { captureImage };
