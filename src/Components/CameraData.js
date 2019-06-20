@@ -33,11 +33,13 @@ const CameraData = () => (
     title="- - - - - - - - - - - - - - - - Camera Data - - - - - - - - - - - - - -"
     initialState={initialState}
     onChange={console.log}
-    width={500}
+    width={700}
     style={{ marginRight: 30 }}
+    settings={[
+        { type: 'text', label: 'Battery Life', initial: 'BATTERYLIFEGOESHERE' },
+        { type: 'text', label: 'Storage', initial: 'STORAGEGOESHERE' },
+]}
   >
-<Range label="Battery Life"  />{/*BATTERYINFO*/}
-<Range label="Storage"  />{/*BATTERYINFO*/}
 
 
 

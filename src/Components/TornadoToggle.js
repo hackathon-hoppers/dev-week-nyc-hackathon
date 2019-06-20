@@ -1,42 +1,53 @@
-import React, {Component} from 'react'
-import ControlPanel, {Checkbox} from 'react-control-panel';
+import React, { Component } from 'react';
+import ControlPanel, { Checkbox } from 'react-control-panel';
+import { connect } from 'react-redux';
+import { tornadoToggle } from '../Reducers';
 
 class ToggleTornado extends Component {
   constructor(props) {
     super(props);
-    this.state = {isToggleOn: true};
+    this.state = { isToggleOn: true };
     this.handleClick = this.handleClick.bind(this);
   }
 
-	handleClick() {
-		this.setState(function(prevState) {
-			return {isToggleOn: !prevState.isToggleOn};
-		});
-	}
-
+  handleClick() {
+    this.props.tornadoToggle();
+  }
 
   render() {
     return (
-        <ControlPanel 
-            theme="dark"
-            title="- - - -  Toggle Tornado Conditions (for demonstrative purposes) - - - - "
-             width={500}
-            style={{ marginRight: 30 }}>
+      <ControlPanel
+        theme="dark"
+        title="- - - -  Toggle Tornado Conditions (for demonstrative purposes) - - - - "
+        width={700}
+        style={{ marginRight: 30 }}
+      >
+        {/* <Checkbox
+          label="Toggle Tornado Conditions"
 
-            <Checkbox label="Toggle Tornado Conditions"/>
+        /> */}
 
-      {/*<button onClick={this.handleClick}>
-        {this.state.isToggleOn ? 'Tornado Condition On' : 'Tornado Condition Off'}
-      </button>*/}
-
+        <button label="Toggle" onClick={this.handleClick}>
+          {this.props.isTornado
+            ? 'Tornado Condition Off'
+            : 'Tornado Condition On'}
+        </button>
       </ControlPanel>
     );
   }
 }
 
-// ReactDOM.render(
-//   <ToggleTornado />,
-//   document.getElementById('root')
-// );
+const mapState = state => {
+  return {
+    isTornado: state.weather.isTornado,
+  };
+};
 
-export default ToggleTornado
+const mapDispatch = dispatch => ({
+  tornadoToggle: () => dispatch(tornadoToggle()),
+});
+
+export default connect(
+  mapState,
+  mapDispatch
+)(ToggleTornado);
