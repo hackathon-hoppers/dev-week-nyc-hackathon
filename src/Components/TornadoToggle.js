@@ -19,7 +19,7 @@ class ToggleTornado extends Component {
     return (
         <ControlPanel 
             theme="dark"
-            title="Toggle Tornado Conditions (for demonstrative purposes)"
+            title="- - - -  Toggle Tornado Conditions (for demonstrative purposes) - - - - "
              width={500}
             style={{ marginRight: 30 }}>
 
