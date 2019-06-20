@@ -33,7 +33,7 @@ class ZipForm extends Component {
         <ControlPanel
     theme="dark"
     title="- - - - - - - Enter the location of your camera- - - - - - - "
-    width={500}
+    width={700}
     style={{ marginRight: 30 }}
   >
   <Text label ="Zip Code">
