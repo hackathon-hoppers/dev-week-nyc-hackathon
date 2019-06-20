@@ -18,7 +18,6 @@ class Weather extends Component {
     if (this.props.weather)
       return (
         <div>
-          <ZipForm />
           <h3>
             Current weather in {this.props.zip}
             <br />
@@ -36,7 +35,9 @@ class Weather extends Component {
       return (
         <div>
           <h5>loading</h5>
+          
         </div>
+                  
       );
   }
 }
