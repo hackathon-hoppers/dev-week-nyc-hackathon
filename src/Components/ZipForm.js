@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateZip } from '../Reducers';
+import ControlPanel, {Checkbox} from 'react-control-panel';
 
 class ZipForm extends Component {
   constructor() {
@@ -29,6 +30,12 @@ class ZipForm extends Component {
 
   render() {
     return (
+        <ControlPanel
+    theme="dark"
+    title="- - - - - - - Enter the location of your camera- - - - - - - "
+    width={500}
+    style={{ marginRight: 30 }}
+  >
       <div id="zip-form">
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="zip">zip code:</label>
@@ -40,6 +47,7 @@ class ZipForm extends Component {
           />
         </form>
       </div>
+      </ControlPanel>
     );
   }
 }
