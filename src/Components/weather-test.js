@@ -1,23 +1,21 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { connect } from 'react-redux';
-import Tornado from './Tornado';
-import NoTornado from './NoTornado';
-import ZipForm from './ZipForm';
-let { apiKey } = require('../secrets');
+import React, { Component } from "react";
+import axios from "axios";
+import { connect } from "react-redux";
+import Tornado from "./Tornado";
+import NoTornado from "./NoTornado";
+import ZipForm from "./ZipForm";
+let { apiKey } = require("../secrets");
 
 class Weather extends Component {
   constructor() {
     super();
     this.state = {
       weatherData: {},
-      zip: '95376',
+      zip: "95376"
     };
   }
 
   componentDidMount() {
-    
-
     async function getWeather(zip) {
       let url = `http://api.openweathermap.org/data/2.5/weather?zip=${zip}&appid=${apiKey}`;
       try {
@@ -30,7 +28,7 @@ class Weather extends Component {
     }
     getWeather(this.props.zip || this.state.zip).then(response => {
       this.setState({
-        weatherData: response,
+        weatherData: response
       });
     });
   }
@@ -56,7 +54,7 @@ class Weather extends Component {
 const mapState = state => {
   return {
     zip: state.weather.zip,
-    weather: state.weather.weatherData,
+    weather: state.weather.weatherData
   };
 };
 
