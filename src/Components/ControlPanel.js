@@ -1,6 +1,5 @@
-import React, {Component} from 'react'
-
-
+import React, { Component } from 'react';
+import { captureImage } from '../cameraAPI/getInfoAndShooting';
 
 import ControlPanel, {
   Button,
@@ -27,7 +26,7 @@ const initialState = {
 };
 
 const DemoPanel = () => (
-
+  // <div>
   <ControlPanel
     theme="dark"
     title="- - - - - - - - - - - - - - Camera Settings - - - - - - - - - - - - -"
@@ -37,14 +36,24 @@ const DemoPanel = () => (
     style={{ marginRight: 30 }}
   >
     <Range label="Exposure" min={0} max={30} />
-    <Select label="ISO" options={{ '100': 100, '200': 200, '400': 400, '800':800, '1600':1600, '3200':3200 }} />
-    <Checkbox label="Flash"/>
-    <Button label="Capture photo" action={() => alert('Photo saved!')} width={700} style={{marginRight:0}}/>
-
-
-
-
-
+    <Select
+      label="ISO"
+      options={{
+        '100': 100,
+        '200': 200,
+        '400': 400,
+        '800': 800,
+        '1600': 1600,
+        '3200': 3200,
+      }}
+    />
+    <Checkbox label="Flash" />
+    <Button
+      label="Capture photo"
+      action={() => alert('Photo saved!')}
+      width={700}
+      style={{ marginRight: 0 }}
+    />
   </ControlPanel>
 );
 

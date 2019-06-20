@@ -8,7 +8,7 @@ import { updateZip } from '../Reducers/weatherReducer';
 class Weather extends Component {
   componentDidMount() {
     let zip;
-    this.props.zip ? (zip = this.props.zip) : (zip = '11218');
+    this.props.zip ? (zip = this.props.zip) : (zip = '11222');
     this.props.updateZip(zip);
   }
 
