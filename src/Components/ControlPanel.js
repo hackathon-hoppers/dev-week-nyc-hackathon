@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { captureImage } from '../cameraAPI/getInfoAndShooting';
+import React, { Component } from "react";
+import { captureImage } from "../cameraAPI/getInfoAndShooting";
 
 import ControlPanel, {
   Button,
@@ -10,51 +10,53 @@ import ControlPanel, {
   Color,
   Range,
   Interval,
-  Custom,
-} from 'react-control-panel';
+  Custom
+} from "react-control-panel";
 
 const initialState = {
-  'range slider': 20,
-  'stepped slider': 0.6,
+  "range slider": 20,
+  "stepped slider": 0.6,
   interval: [25, 50],
-  text: 'my setting',
+  text: "my setting",
   checkbox: true,
-  'color rgb': 'rgb(100, 200, 100',
-  'color hex': '#30b2ba',
-  selection: 'option 1',
-  'multiple checkboxes': [true, true],
+  "color rgb": "rgb(100, 200, 100",
+  "color hex": "#30b2ba",
+  selection: "option 1",
+  "multiple checkboxes": [true, true]
 };
 
 const DemoPanel = () => (
-  // <div>
-  <ControlPanel
-    theme="dark"
-    title="- - - - - - - - - - - - - - Camera Settings - - - - - - - - - - - - -"
-    initialState={initialState}
-    onChange={console.log}
-    width={700}
-    style={{ marginRight: 30 }}
-  >
-    <Range label="Exposure" min={0} max={30} />
-    <Select
-      label="ISO"
-      options={{
-        '100': 100,
-        '200': 200,
-        '400': 400,
-        '800': 800,
-        '1600': 1600,
-        '3200': 3200,
-      }}
-    />
-    <Checkbox label="Flash" />
-    <Button
-      label="Capture photo"
-      action={() => alert('Photo saved!')}
+  <div>
+    <ControlPanel
+      theme="dark"
+      title="- - - - - - - - - - - - - - Camera Settings - - - - - - - - - - - - -"
+      initialState={initialState}
+      onChange={console.log}
       width={700}
-      style={{ marginRight: 0 }}
-    />
-  </ControlPanel>
+      style={{ marginRight: 30 }}
+    >
+      <Range label="Exposure" min={0} max={30} />
+      <Select
+        label="ISO"
+        options={{
+          "100": 100,
+          "200": 200,
+          "400": 400,
+          "800": 800,
+          "1600": 1600,
+          "3200": 3200
+        }}
+      />
+      <Checkbox label="Flash" />
+      <Button
+        label="Capture photo"
+        action={() => captureImage()}
+        width={700}
+        style={{ marginRight: 0 }}
+      />
+    </ControlPanel>
+    <button onClick={() => captureImage()}>capture image</button>
+  </div>
 );
 
 export default DemoPanel;
