@@ -11,7 +11,7 @@ import ControlPanel, { Text } from 'react-control-panel';
 function App() {
   return (
     <div className="App">
-    <div><h1>- - - Storm Catchr - - -</h1></div>
+    <div className="title">Storm Catchr</div>
     <ControlPanel title={"Hi, nature photographer! Use the panel below to remotely control your camera during perilous weather and seek safety while still getting the best shot!"} width={700} height={200} theme="dark" />
     
     
