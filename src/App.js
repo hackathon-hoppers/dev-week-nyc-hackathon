@@ -1,13 +1,16 @@
 import React from 'react';
 import './App.css';
-import Weather from './Components/weather-test';
+import TornadoToggle from './Components/TornadoToggle';
+// import Weather from './Components/weather-test';
+import Weather from './Components/Weather';
+import DemoPanel from './Components/ControlPanel';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Weather />
-      </header>
+      <TornadoToggle />
+      <DemoPanel />
+      <Weather />
     </div>
   );
 }
