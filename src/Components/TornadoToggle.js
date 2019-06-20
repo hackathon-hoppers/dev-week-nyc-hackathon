@@ -29,8 +29,8 @@ class ToggleTornado extends Component {
 
         <button onClick={this.handleClick}>
           {this.props.isTornado
-            ? 'Tornado Condition On'
-            : 'Tornado Condition Off'}
+            ? 'Tornado Condition Off'
+            : 'Tornado Condition On'}
         </button>
       </ControlPanel>
     );
