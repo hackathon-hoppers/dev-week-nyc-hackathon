@@ -5,7 +5,6 @@ import NoTornado from './NoTornado';
 import ZipForm from './ZipForm';
 import { updateZip } from '../Reducers/weatherReducer';
 
-
 class Weather extends Component {
   componentDidMount() {
     let zip;

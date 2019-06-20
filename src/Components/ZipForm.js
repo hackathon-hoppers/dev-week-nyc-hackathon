@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateZip } from '../Reducers';
-import ControlPanel, {Checkbox} from 'react-control-panel';
+import ControlPanel, {Text} from 'react-control-panel';
 
 class ZipForm extends Component {
   constructor() {
@@ -36,7 +36,8 @@ class ZipForm extends Component {
     width={500}
     style={{ marginRight: 30 }}
   >
-      <div id="zip-form">
+  <Text label ="Zip Code">
+      <div id="Zip-form">
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="zip">zip code:</label>
           <input
@@ -47,6 +48,7 @@ class ZipForm extends Component {
           />
         </form>
       </div>
+      </Text>
       </ControlPanel>
     );
   }
