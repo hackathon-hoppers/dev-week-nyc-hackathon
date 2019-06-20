@@ -24,9 +24,12 @@ class Weather extends Component {
             <br />
             {this.props.weather.main}
             <br />
-            {/* {this.props.weather.main.temp} */}
           </h3>
-          {this.props.weather.id === 781 ? <Tornado /> : <NoTornado />}
+          {this.props.weather.id === 781 || this.props.isTornado ? (
+            <Tornado />
+          ) : (
+            <NoTornado />
+          )}
         </div>
       );
     if (!this.props.weather)
@@ -42,6 +45,7 @@ const mapState = state => {
   return {
     zip: state.weather.zip,
     weather: state.weather.weatherData,
+    isTornado: state.weather.isTornado,
   };
 };
 
