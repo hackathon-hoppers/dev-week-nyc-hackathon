@@ -5,7 +5,7 @@ async function getContent() {
   try {
     console.log("getInfo is running...");
     const response = await axios.get(
-      "http://172.14.12.99:8080/ccapi/ver100/contents/sd/100CANON"
+      "http://172.20.10.6:8080/ccapi/ver100/contents/sd/100CANON"
     );
     console.log("response is!! ", response.data);
   } catch (err) {
@@ -13,14 +13,12 @@ async function getContent() {
   }
 }
 
-getContent();
-
 //the following prompts the camera to take a picture
 async function captureImage() {
   try {
     console.log("image being captured...");
     const response = await axios.post(
-      "http://172.14.12.99:8080/ccapi/ver100/shooting/control/shutterbutton",
+      "http://172.20.10.6:8080/ccapi/ver100/shooting/control/shutterbutton",
       { af: true }
     );
     console.log("image response is ", response.data);
