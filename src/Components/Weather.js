@@ -8,7 +8,7 @@ import { updateZip } from '../Reducers/weatherReducer';
 class Weather extends Component {
   componentDidMount() {
     let zip;
-    this.props.zip ? (zip = this.props.zip) : (zip = '11218');
+    this.props.zip ? (zip = this.props.zip) : (zip = '11222');
     this.props.updateZip(zip);
   }
 
@@ -18,22 +18,26 @@ class Weather extends Component {
     if (this.props.weather)
       return (
         <div>
-          <ZipForm />
           <h3>
             Current weather in {this.props.zip}
             <br />
             {this.props.weather.main}
             <br />
-            {/* {this.props.weather.main.temp} */}
           </h3>
-          {this.props.weather.id === 781 ? <Tornado /> : <NoTornado />}
+          {this.props.weather.id === 781 || this.props.isTornado ? (
+            <Tornado />
+          ) : (
+            <NoTornado />
+          )}
         </div>
       );
     if (!this.props.weather)
       return (
         <div>
           <h5>loading</h5>
+          
         </div>
+                  
       );
   }
 }
@@ -42,6 +46,7 @@ const mapState = state => {
   return {
     zip: state.weather.zip,
     weather: state.weather.weatherData,
+    isTornado: state.weather.isTornado,
   };
 };
 
