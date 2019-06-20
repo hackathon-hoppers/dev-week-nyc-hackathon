@@ -1,6 +1,5 @@
-import React, {Component} from 'react'
-
-
+import React, { Component } from 'react';
+import { captureImage } from '../cameraAPI/getInfoAndShooting';
 
 import ControlPanel, {
   Button,
@@ -27,25 +26,41 @@ const initialState = {
 };
 
 const DemoPanel = () => (
-
-  <ControlPanel
-    theme="dark"
-    title="- - - - - - - - - - - - - - Camera Settings - - - - - - - - - - - - -"
-    initialState={initialState}
-    onChange={console.log}
-    width={500}
-    style={{ marginRight: 30 }}
-  >
-    <Range label="Exposure" min={0} max={30} />
-    <Select label="ISO" options={{ '100': 100, '200': 200, '400': 400, '800':800, '1600':1600, '3200':3200 }} />
-    <Checkbox label="Flash"/>
-    <Button label="Capture photo" action={() => alert('Photo saved!')} width={500} style={{marginRight:0}}/>
-
-
-
-
-
-  </ControlPanel>
+  <div>
+    <ControlPanel
+      theme="dark"
+      title="- - - - - - - - - - - - - - Camera Settings - - - - - - - - - - - - -"
+      initialState={initialState}
+      onChange={console.log}
+      width={500}
+      style={{ marginRight: 30 }}
+    >
+      <Range label="Exposure" min={0} max={30} />
+      <Select
+        label="ISO"
+        options={{
+          '100': 100,
+          '200': 200,
+          '400': 400,
+          '800': 800,
+          '1600': 1600,
+          '3200': 3200,
+        }}
+      />
+      <Checkbox label="Flash" />
+      <Button
+        label="Capture photo"
+        action={() => captureImage()}
+        width={500}
+        style={{ marginRight: 0 }}
+      />
+    </ControlPanel>
+    <div>
+      <button label="Take Photo" onClick={() => captureImage()}>
+        Capture IMAGEEL:SdjFSL:DJ
+      </button>
+    </div>
+  </div>
 );
 
 export default DemoPanel;

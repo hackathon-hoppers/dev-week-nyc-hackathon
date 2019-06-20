@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 const GOT_FLASH = 'GOT_FLASH';
 const GOT_EXPOSURE = 'GOT_EXPOSURE';
 const GOT_ISO = 'GOT_ISO';
@@ -20,14 +19,36 @@ const gotISO = iso => ({
   iso,
 });
 
-export const fetchWeather = zip => {
-  let url = `http://api.openweathermap.org/data/2.5/weather?zip=${zip}&appid=${apiKey}`;
+export const fetchFlash = zip => {
+  let url = `http://192.168.1.2:8080/ccapi/ver100/shooting/settings/flash","get":true,"post":false,"put":true,"delete":false`;
   return async dispatch => {
     try {
       const { data } = await axios.get(url);
-      console.log('data', data.main);
-      // dispatch(gotWeather(data));
-      dispatch(gotWeather(data.weather[0]));
+      dispatch(gotFlash(data));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+export const fetchExposure = zip => {
+  let url = `http://192.168.1.2:8080/ccapi/ver100/shooting/settings/exposure","get":true,"post":false,"put":true,"delete":false`;
+  return async dispatch => {
+    try {
+      const { data } = await axios.get(url);
+      dispatch(gotExposure(data));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+export const fetchISO = zip => {
+  let url = `http://192.168.1.2:8080/ccapi/ver100/shooting/settings/iso","get":true,"post":false,"put":true,"delete":false`;
+  return async dispatch => {
+    try {
+      const { data } = await axios.get(url);
+      dispatch(gotISO(data));
     } catch (error) {
       console.error(error);
     }
